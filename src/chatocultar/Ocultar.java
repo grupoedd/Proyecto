@@ -39,7 +39,7 @@ public class Ocultar {
     public static Queue<String> mostrarCola() {
         return colamsg;
     }
-
+//prueba modificar repositorio
     public String mostrar() {
        // while (!mostrarCola().isEmpty()) {
             String msj = mostrarCola().poll();
