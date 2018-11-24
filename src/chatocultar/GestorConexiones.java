@@ -1,5 +1,5 @@
 /*
- * MSGestorConexiones.java
+ * GestorConexiones.java
  *
  * Created on 1 de noviembre de 2007, 23:16
  *
@@ -15,29 +15,29 @@ import java.util.ArrayList;
  *
  * @author Administrador
  */
-public class MSGestorConexiones {
+public class GestorConexiones {
     
-    private static MSGestorConexiones singleton=new MSGestorConexiones();
-    public  static MSGestorConexiones getInstance(){
+    private static GestorConexiones singleton=new GestorConexiones();
+    public  static GestorConexiones getInstance(){
         return singleton;
     }
     
-    private ArrayList<MSConexion> conexiones = new ArrayList<MSConexion>();
+    private ArrayList<Conexion> conexiones = new ArrayList<Conexion>();
     
     public void enviarTrama(int nCodigo, String sTrama){
-        for (MSConexion ms:conexiones){
+        for (Conexion ms:conexiones){
             ms.enviarTrama(nCodigo, sTrama);
         }
     }
     
-    public void conectaNuevo(MSConexion nuevo){
-        for (MSConexion ms:conexiones){
+    public void conectaNuevo(Conexion nuevo){
+        for (Conexion ms:conexiones){
             nuevo.enviarTrama(1, ms.getNick());
         }
         conexiones.add(nuevo);
     }
     
-    public void desconecta(MSConexion eliminar){
+    public void desconecta(Conexion eliminar){
         int nPos=-1;
         for (int n=0;n<conexiones.size();n++){
             if (conexiones.get(n)==eliminar){

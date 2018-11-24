@@ -15,8 +15,8 @@ import javax.swing.JOptionPane;
  * @author  Administrador
  */
 public class VServidor extends javax.swing.JFrame {
-    //creamos una instancia de tipo MServidor(hilo) 
-    private MServidor servidor = null;
+    //creamos una instancia de tipo Servidor(hilo) 
+    private Servidor servidor = null;
     
     /** Creates new form VServidor */
     public VServidor() {
@@ -85,7 +85,7 @@ public class VServidor extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (servidor==null){
             int puerto = Integer.parseInt(jTextField1.getText());
-            servidor = new MServidor(this, puerto);
+            servidor = new Servidor(this, puerto);
             servidor.start();
         }
     }//GEN-LAST:event_jButton1ActionPerformed

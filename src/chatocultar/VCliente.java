@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class VCliente extends javax.swing.JFrame {
     
-    private MCliente cliente=null;
+    private Cliente cliente=null;
     
     /** Creates new form VCliente */
     public VCliente() {
@@ -198,7 +198,7 @@ public class VCliente extends javax.swing.JFrame {
             String url = jTextField2.getText();
             String nick = jTextField4.getText();
             if (cliente==null){
-                cliente = new MCliente(port,url,nick,this);
+                cliente = new Cliente(port,url,nick,this);
                 cliente.start();
             }
             jButton1.setEnabled(false);

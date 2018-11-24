@@ -1,5 +1,5 @@
 /*
- * MServidor.java
+ * Servidor.java
  *
  * Created on 1 de noviembre de 2007, 22:29
  *
@@ -19,24 +19,24 @@ import javax.swing.JOptionPane;
  *
  * @author Administrador
  */
-public class MServidor extends Thread{
+public class Servidor extends Thread{
     
-    private int port;
+    private int puerto;
     private JFrame ventana;
     
-    /** Creates a new instance of MServidor */
-    public MServidor(JFrame ventana, int puerto) {
-        this.port = puerto;
+
+    public Servidor(JFrame ventana, int puerto) {
+        this.puerto = puerto;
         this.ventana = ventana;
     }
     
     public void run(){
         ServerSocket ss=null;
         try{
-            ss=new ServerSocket(port);
+            ss=new ServerSocket(puerto);
             while (true){
                 Socket s=ss.accept();
-                MSGestorConexiones.getInstance().conectaNuevo(new MSConexion(s));
+                GestorConexiones.getInstance().conectaNuevo(new Conexion(s));
             }
             //JOptionPane.showMessageDialog(ventana,"Se han conectado");
         }catch(Exception e){

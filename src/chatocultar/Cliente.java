@@ -1,5 +1,5 @@
 /*
- * MCliente.java
+ * Cliente.java
  *
  * Created on 1 de noviembre de 2007, 22:53
  *
@@ -18,17 +18,17 @@ import javax.swing.JOptionPane;
  *
  * @author Administrador
  */
-public class MCliente extends Thread{
+public class Cliente extends Thread{
 
-    private int port;
+    private int puerto;
     private String url;
     private Socket s;
     private boolean bConectado;
     VCliente ventana;
     private String nick;
-    /** Creates a new instance of MCliente */
-    public MCliente(int port, String url, String nick, VCliente ventana) {
-        this.port=port;
+
+    public Cliente(int puerto, String url, String nick, VCliente ventana) {
+        this.puerto=puerto;
         this.url=url;
         this.ventana=ventana;
         this.nick=nick;
@@ -36,7 +36,7 @@ public class MCliente extends Thread{
     
     public void run(){
         try{
-            s=new Socket(url, port);
+            s=new Socket(url, puerto);
             DataInputStream dis=new DataInputStream(s.getInputStream());
             enviarTrama(1, nick);
             bConectado=true;

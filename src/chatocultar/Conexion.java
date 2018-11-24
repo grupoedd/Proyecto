@@ -1,5 +1,5 @@
 /*
- * MSConexion.java
+ * Conexion.java
  *
  * Created on 1 de noviembre de 2007, 23:17
  *
@@ -18,7 +18,7 @@ import java.net.Socket;
  *
  * @author Administrador
  */
-public class MSConexion extends Thread{
+public class Conexion extends Thread{
     
     private Socket s;
     private DataInputStream dis;
@@ -26,7 +26,7 @@ public class MSConexion extends Thread{
     private String nick;
     
     /** Creates a new instance of MSConexion */
-    public MSConexion(Socket s) {
+    public Conexion(Socket s) {
         try{
             this.s=s;
             dis=new DataInputStream(s.getInputStream());
@@ -48,14 +48,14 @@ public class MSConexion extends Thread{
                 switch(nCodigo){
                     case 1:
                         nick=sTrama;
-                        MSGestorConexiones.getInstance().enviarTrama(nCodigo, sTrama);
+                        GestorConexiones.getInstance().enviarTrama(nCodigo, sTrama);
                         break;
                     case 2:
                         sTrama="<" + nick + "> - " + sTrama;
-                        MSGestorConexiones.getInstance().enviarTrama(nCodigo, sTrama);
+                        GestorConexiones.getInstance().enviarTrama(nCodigo, sTrama);
                         break;
                     case 3:
-                        MSGestorConexiones.getInstance().desconecta(this);
+                        GestorConexiones.getInstance().desconecta(this);
                         break;
                 }
                 
