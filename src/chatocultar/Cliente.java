@@ -11,6 +11,7 @@ package chatocultar;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 import javax.swing.JOptionPane;
 
@@ -80,8 +81,8 @@ public class Cliente extends Thread{
             DataOutputStream dos=new DataOutputStream(s.getOutputStream());
             dos.writeInt(nCodigo);
             dos.writeUTF(sTrama);
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(ventana, "No se pudo enviar el mensaje");
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(ventana, "No se pudo enviar el mensaje"+e.getMessage());
         }
         
     }

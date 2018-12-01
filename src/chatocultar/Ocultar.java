@@ -15,7 +15,7 @@ public class Ocultar {
     public String ocultar(String mensaje) {
         ocultarMsj = mensaje.toCharArray();
         for (int i = 0; i < ocultarMsj.length; i++) {
-            ocultarMsj[i] = (char) (ocultarMsj[i] + 3);
+            ocultarMsj[i] = (char) (ocultarMsj[i] + 6);
         }
         System.out.println(ocultarMsj);
         o = String.valueOf(ocultarMsj);
@@ -30,18 +30,31 @@ public class Ocultar {
     public static Queue<String> mostrarCola() {
         return colamsg;
     }
-//prueba modificar repositorio
+
     public String mostrar() {
-       // while (!mostrarCola().isEmpty()) {
-            // msj = mostrarCola().poll();
+        while (!mostrarCola().isEmpty()) {
+            msj = mostrarCola().poll();
             mostrarMsj = msj.toCharArray();
             for (short j = 0; j < mostrarMsj.length; j++) {
-                mostrarMsj[j] = (char) (mostrarMsj[j] - 3);
+                mostrarMsj[j] = (char) (mostrarMsj[j] + 3);
             }
             String m = String.valueOf(mostrarMsj);
-            //colatxt.add(m);
-            return m;
+            System.out.println(m);
+            colatxt.add(m);
+        }
+        String txt = null;
+        if (!colatxt.isEmpty()) {
+            while (!colatxt.isEmpty()) {
+                String txt2 = String.valueOf(colatxt.poll());
+                //txt.concat(txt, txt2);
+                txt2 = txt;
+                
+            }
+            return txt;
+        } else {
+            return null;
         }
 
-
     }
+
+}
